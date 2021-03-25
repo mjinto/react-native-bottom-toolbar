@@ -104,6 +104,13 @@ export default class BottomToolbar extends React.PureComponent<BottomToolbarProp
 
     if (IconElement) {
       return IconElement;
+    } else if(childProps.iconName && childProps.title) {
+      return (
+        <View style={{flex:1, alignContent:"center", alignItems:"center"}}>
+            {this.renderIcon(childProps, disabled)}
+            {this.renderText(childProps, disabled)}
+        </View>
+      )
     } else if (childProps.iconName) {
       return this.renderIcon(childProps, disabled);
     } else {
